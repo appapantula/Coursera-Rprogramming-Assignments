@@ -1,0 +1,12 @@
+complete <- function(directory, id = 1:332)  {
+  pollu_data <- data.frame()
+  result <- data.frame()
+  pollu_file_path <- list.files(directory,full.names = TRUE)
+  for (i in id) {
+    pollu_data <- data.frame()
+    pollu_data = na.omit(read.csv(pollu_file_path[i]))
+    result <- rbind(result,data.frame(id=i,nobs=nrow(pollu_data)))
+    
+  }
+    result
+  }
